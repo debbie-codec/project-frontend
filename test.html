@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Inspiration Slider</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .inspiration-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: #f5f5f5;
+        }
+
+        .content {
+            max-width: 35%;
+            padding-right: 20px;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 1em;
+            color: #7f8c8d;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .explore-btn {
+            font-size: 1em;
+            background-color: #3498db;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .explore-btn:hover {
+            background-color: #2980b9;
+        }
+
+        .slider-container {
+            width: 65%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider {
+            display: flex;
+            transition: transform 0.3s ease-out;
+        }
+
+        .slide {
+            min-width: 50%;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        .slide-caption {
+            position: absolute;
+            bottom: 40px;
+            left: 20px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+        }
+
+        .arrow-btn {
+            position: absolute;
+            top: 50%;
+            right: 10px;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: #fff;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .slider-nav {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .nav-dot {
+            height: 10px;
+            width: 10px;
+            background-color: #bbb;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav-dot.active {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+
+<section class="inspiration-section">
+    <div class="content">
+        <h1>50+ Beautiful rooms inspiration</h1>
+        <p>Our designer already made a lot of beautiful prototypes of rooms that inspire you.</p>
+        <button class="explore-btn">Explore More</button>
+    </div>
+    
+    <div class="slider-container">
+        <div class="slider">
+            <div class="slide">
+                <img src="images/bedroom.jpg" alt="Dining Room">
+                <div class="slide-caption">
+                    <span class="category">01 — Dining Room</span>
+                    <h2>Elegant Dining</h2>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/bedroom.jpg" alt="Living Room">
+                <div class="slide-caption">
+                    <span class="category">02 — Living Room</span>
+                    <h2>Cozy Space</h2>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="images/bedroom.jpg" alt="Bed Room">
+            </div>
+            <div class="slide">
+                <img src="images/dinning.jpg" alt="Office Room">
+            </div>
+        </div>
+        <button class="arrow-btn">→</button>
+        <div class="slider-nav">
+            <span class="nav-dot active"></span>
+            <span class="nav-dot"></span>
+            <span class="nav-dot"></span>
+            <span class="nav-dot"></span>
+        </div>
+    </div>
+</section>
+
+<script>
+    const slider = document.querySelector('.slider');
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.nav-dot');
+    const arrowBtn = document.querySelector('.arrow-btn');
+    let currentIndex = 0;
+
+    function moveSlider(index) {
+        slider.style.transform = `translateX(-${index * 50}%)`; // Each slide is 50% of the width
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    arrowBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % (slides.length / 2); // navigate through pairs
+        moveSlider(currentIndex);
+    });
+
+    dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            currentIndex = i;
+            moveSlider(currentIndex);
+        });
+    });
+</script>
+
+</body>
+</html>

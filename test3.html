@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funiro Furniture Setup</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Section Title Styling */
+        .furniture-section h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .furniture-section span {
+            color: #e67e22;
+        }
+
+        /* Grid Layout */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr); /* 6 columns for exact positioning */
+            grid-template-rows: repeat(6, 1fr);    /* 6 rows */
+            width: 90vw; /* Almost full viewport width */
+            height: 90vh; /* Almost full viewport height */
+            gap: 0; /* No space between images */
+        }
+
+        /* Top-left medium image */
+        .grid-item1 {
+            grid-column: 1 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        /* Top-right medium image */
+        .grid-item2 {
+            grid-column: 5 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        /* Bottom-left medium image */
+        .grid-item3 {
+            grid-column: 1 / span 2;
+            grid-row: 5 / span 2;
+        }
+
+        /* Bottom-right medium image */
+        .grid-item4 {
+            grid-column: 5 / span 2;
+            grid-row: 5 / span 2;
+        }
+
+        /* Center image */
+        .grid-item5 {
+            grid-column: 3 / span 2;
+            grid-row: 3 / span 2;
+        }
+
+        /* Left-side large image */
+        .grid-item6 {
+            grid-column: 1 / span 2;
+            grid-row: 3 / span 2;
+        }
+
+        /* Right-side large image */
+        .grid-item7 {
+            grid-column: 5 / span 2;
+            grid-row: 3 / span 2;
+        }
+
+        /* Top-center large image */
+        .grid-item8 {
+            grid-column: 3 / span 2;
+            grid-row: 1 / span 2;
+        }
+
+        /* Bottom-center large image */
+        .grid-item9 {
+            grid-column: 3 / span 2;
+            grid-row: 5 / span 2;
+        }
+
+        /* Common Image Styling */
+        .image-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Adding Staggered Animation Delays */
+        .grid-item1 img {
+            animation: fadeInScale 0.8s ease forwards;
+            animation-delay: 0.2s;
+        }
+
+        .grid-item2 img {
+            animation: fadeInScale 0.8s ease forwards;
+            animation-delay: 0.4s;
+        }
+
+        .grid-item3 img {
+            animation: fadeInScale 0.8s ease forwards;
+            animation-delay: 0.6s;
+        }
+
+        .grid-item4 img {
+            animation: fadeInScale 0.8s ease forwards;
+            animation-delay: 0.8s;
+        }
+
+        .grid-item5 img {
+            animation: fadeInScale 0.8s ease forwards;
+            animation-delay: 1s;
+        }
+
+        .grid-item6 img {
+            animation: fadeInScale 0.8s ease forwards;
+            animation-delay: 1.2s;
+        }
+
+        .grid-item7 img {
+            animation: fadeInScale 0.8s ease forwards;
+            animation-delay: 1.4s;
+        }
+
+        .grid-item8 img {
+            animation: fadeInScale 0.8s ease forwards;
+            animation-delay: 1.6s;
+        }
+
+        .grid-item9 img {
+            animation: fadeInScale 0.8s ease forwards;
+            animation-delay: 1.8s;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+                gap: 5px;
+            }
+
+            .grid-item1, .grid-item2, .grid-item3, .grid-item4, .grid-item5, .grid-item6, .grid-item7, .grid-item8, .grid-item9 {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .image-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(9, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="furniture-section">
+        <!-- Section Title -->
+        <h1 class="center1">Share your setup with <br><span>#FuniroFurniture</span></h1>
+        
+        <div class="body-select">
+            <!-- Image Grid -->
+            <div class="image-grid">
+                <div class="grid-item1">
+                    <img src="images/dinning.jpg" alt="Furniture 1">
+                </div>
+                <div class="grid-item2">
+                    <img src="images/dinning.jpg" alt="Furniture 2">
+                </div>
+                <div class="grid-item3">
+                    <img src="images/dinning.jpg" alt="Furniture 3">
+                </div>
+                <div class="grid-item4">
+                    <img src="images/dinning.jpg" alt="Furniture 4">
+                </div>
+                <div class="grid-item5">
+                    <img src="images/dinning.jpg" alt="Furniture 5">
+                </div>
+                <div class="grid-item6">
+                    <img src="images/sitting.jpg" alt="Furniture 6">
+                </div>
+                <div class="grid-item7">
+                    <img src="images/sitting.jpg" alt="Furniture 7">
+                </div>
+                <div class="grid-item8">
+                    <img src="images/sitting.jpg" alt="Furniture 8">
+                </div>
+                <div class="grid-item9">
+                    <img src="images/sitting.jpg" alt="Furniture 9">
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
